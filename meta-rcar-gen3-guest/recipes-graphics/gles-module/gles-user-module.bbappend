@@ -16,5 +16,7 @@ FILES_${PN}-firmware = " \
 "
 SYSTEMD_SERVICE_${PN}-firmware = "rc.pvr.service"
 
+INITSCRIPT_PACKAGES = ""
+
 RDEPENDS_${PN}_remove = "kernel-module-gles"
 RDEPENDS_${PN}-firmware = "kernel-module-gles"
