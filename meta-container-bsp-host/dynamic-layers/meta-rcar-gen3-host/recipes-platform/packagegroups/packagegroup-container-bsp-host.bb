@@ -1,16 +1,16 @@
-SUMMARY = "Renesas R-Car Gen3 host package group for host"
+SUMMARY = "host package group for Renesas R-Car Gen3"
 LICENSE = "MIT"
 
 inherit packagegroup
 
 PACKAGES = " \
-    packagegroup-rcar-gen3-host-kmodules \
-    packagegroup-rcar-gen3-host-firmware \
+    packagegroup-container-bsp-host-kmodules \
+    packagegroup-container-bsp-host-firmware \
 "
 
 PR = "r0"
 
-RDEPENDS_packagegroup-rcar-gen3-host-kmodules = " \
+RDEPENDS_packagegroup-container-bsp-host-kmodules = " \
     kernel-module-gles \
     kernel-module-mmngr \
     kernel-module-mmngrbuf \
@@ -21,7 +21,7 @@ RDEPENDS_packagegroup-rcar-gen3-host-kmodules = " \
     kernel-module-vspmif \
 "
 
-RDEPENDS_packagegroup-rcar-gen3-host-firmware = " \
+RDEPENDS_packagegroup-container-bsp-host-firmware = " \
     gles-user-module-firmware \
 "
 
