@@ -1,0 +1,25 @@
+From 00c1fe83c3e7c4758fe70c9a86be32b46bafe45a Mon Sep 17 00:00:00 2001
+From: Naoto Yamaguchi <naoto.yamaguchi@aisin.co.jp>
+Date: Wed, 12 Oct 2022 23:36:16 +0900
+Subject: [PATCH 3/3] Remove DeviceAllow setting from systemd-networkd.service
+
+Signed-off-by: Naoto Yamaguchi <naoto.yamaguchi@aisin.co.jp>
+---
+ units/systemd-networkd.service.in | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/units/systemd-networkd.service.in b/units/systemd-networkd.service.in
+index 01931665a4..1f8c3db4d1 100644
+--- a/units/systemd-networkd.service.in
++++ b/units/systemd-networkd.service.in
+@@ -21,7 +21,6 @@ Wants=network.target
+ [Service]
+ AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_BROADCAST CAP_NET_RAW
+ CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE CAP_NET_BROADCAST CAP_NET_RAW
+-DeviceAllow=char-* rw
+ ExecStart=!!@rootlibexecdir@/systemd-networkd
+ LockPersonality=yes
+ MemoryDenyWriteExecute=yes
+-- 
+2.25.1
+

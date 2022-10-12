@@ -1,0 +1,33 @@
+From 2ee3b3ffe2cb55125a969f505f0c408e6bea9265 Mon Sep 17 00:00:00 2001
+From: Naoto Yamaguchi <naoto.yamaguchi@aisin.co.jp>
+Date: Wed, 12 Oct 2022 23:34:29 +0900
+Subject: [PATCH 2/3] Remove DeviceAllow setting and modprobe from
+ systemd-logind.service
+
+Signed-off-by: Naoto Yamaguchi <naoto.yamaguchi@aisin.co.jp>
+---
+ units/systemd-logind.service.in | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/units/systemd-logind.service.in b/units/systemd-logind.service.in
+index ccbe631586..f553830e8a 100644
+--- a/units/systemd-logind.service.in
++++ b/units/systemd-logind.service.in
+@@ -22,14 +22,8 @@ After=dbus.socket
+ [Service]
+ BusName=org.freedesktop.login1
+ CapabilityBoundingSet=CAP_SYS_ADMIN CAP_MAC_ADMIN CAP_AUDIT_CONTROL CAP_CHOWN CAP_DAC_READ_SEARCH CAP_DAC_OVERRIDE CAP_FOWNER CAP_SYS_TTY_CONFIG CAP_LINUX_IMMUTABLE
+-DeviceAllow=block-* r
+-DeviceAllow=char-/dev/console rw
+-DeviceAllow=char-drm rw
+-DeviceAllow=char-input rw
+ DeviceAllow=char-tty rw
+-DeviceAllow=char-vcs rw
+ # Make sure the DeviceAllow= lines above can work correctly when referenceing char-drm
+-ExecStartPre=-/sbin/modprobe -abq drm
+ ExecStart=@rootlibexecdir@/systemd-logind
+ FileDescriptorStoreMax=512
+ IPAddressDeny=any
+-- 
+2.25.1
+
